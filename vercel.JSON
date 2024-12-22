@@ -1,0 +1,32 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "app.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "50mb" }
+      },
+      {
+        "src": "templates/**",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "static/**",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "app.py"
+      }
+    ],
+    "env": {
+      "HF_API_TOKEN": "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",
+      "UPLOAD_FOLDER_GEN": "upload_gen",
+      "UPLOAD_FOLDER_TEST": "upload_test",
+      "GENERATED_FOLDER_GEN": "generated_gen",
+      "GENERATED_FOLDER_TEST": "generated_test"
+    }
+}
+  
